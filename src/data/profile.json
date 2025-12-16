@@ -1,0 +1,78 @@
+{
+    "profile": {
+        "name": "Ing. Roberth Rios Jesus",
+        "role": "Ingeniero de Sistemas CIP 321353 | Cloud & Fullstack Developer",
+        "summary": "Ingeniero de Sistemas Colegiado con Maestría en Gerencia de TI en curso. Especialista en Transformación Digital con sólida base técnica en Arquitectura Cloud (AWS/Azure/GCP), Desarrollo Python (Certificado PCEP) y Redes (CCNA). Experiencia probada en el sector público gestionando infraestructura crítica y liderando proyectos de digitalización con resultados medibles.",
+        "location": "Áncash, Perú",
+        "email": "tauroroberth00@gmail.com",
+        "social": {
+            "linkedin": "https://linkedin.com/in/roberthrjr",
+            "github": "https://github.com/Roberthrjr"
+        }
+    },
+    "experience": [
+        {
+            "role": "Especialista en Computación",
+            "company": "Municipalidad Provincial de Pomabamba",
+            "period": "Ene 2023 - Nov 2025",
+            "desc": "Gestión integral de infraestructura TI para más de 200 activos. Implementación de políticas de Gobierno Digital y mantenimiento que aseguró la continuidad operativa de servicios críticos."
+        },
+        {
+            "role": "Asistente de Tecnología y Sistemas",
+            "company": "Municipalidad Distrital de Huayllán",
+            "period": "Ene 2021 - Dic 2022",
+            "desc": "Desarrollo de sistema de control de asistencia que redujo tiempos operativos en un 86% y digitalizó reportes de RR.HH. (Nota: Software de propiedad municipal)."
+        }
+    ],
+    "education": [
+        {
+            "degree": "Maestría en Gerencia de TI y Transformación Digital",
+            "school": "UTP & EUSCHOOL (España)",
+            "period": "En curso",
+            "detail": "Especialización en Gestión Estratégica y Gobierno Digital."
+        },
+        {
+            "degree": "Título Profesional de Ingeniero de Sistemas",
+            "school": "Universidad César Vallejo",
+            "period": "2018 - 2023",
+            "detail": "Ganador del 1er Puesto en Feria de Innovación (2020) con proyecto de IA y 3er Lugar en Expowork (2021)."
+        }
+    ],
+    "skills": [
+        "Python Fullstack (PCEP & Bootcamp)",
+        "Cloud Architecture (AWS/Azure)",
+        "Ciberseguridad & Redes (CCNA)",
+        "Power BI & Data Analytics",
+        "Gestión de Proyectos (PMI)",
+        "DevOps & Linux Admin"
+    ],
+    "certifications": [
+        "Bootcamp Desarrollo Web Fullstack con Python (258 horas) - Tecsup",
+        "Diplomado en Gestión de Proyectos (135 horas) - Zegel",
+        "PMI Project Management Ready™ - Project Management Institute",
+        "Cloud Computing: AWS - Azure - Google Cloud (Nota 20) - UNI",
+        "CCNA v7: Redes Empresariales, Seguridad y Automatización - Cisco",
+        "PCEP™ – Certified Entry-Level Python Programmer - Python Institute",
+        "Google Cybersecurity & IT Support Professional Certificate"
+    ],
+    "projects": [
+        {
+            "title": "Cloud Resume Challenge (AWS/Azure)",
+            "tech": "AWS S3 | Lambda | GitHub Actions",
+            "desc": "Implementación de arquitectura Serverless para alojar un portafolio web. Demuestra competencias en Cloud Computing (Certificación UNI) y CI/CD.",
+            "link": "https://github.com/Roberthrjr"
+        },
+        {
+            "title": "Network Automation Script",
+            "tech": "Python | Netmiko | Linux",
+            "desc": "Herramienta de automatización para configuración de equipos de red. Aplica conocimientos de CCNA y certificación PCEP Python para reducir tareas repetitivas.",
+            "link": "https://github.com/Roberthrjr"
+        },
+        {
+            "title": "Dashboard Analítico de Negocios",
+            "tech": "Power BI | SQL | DAX",
+            "desc": "Tablero interactivo para visualización de datos empresariales (Sales/KPIs). Demuestra habilidades de la certificación Power BI Intermedio (UNI).",
+            "link": "#"
+        }
+    ]
+}
