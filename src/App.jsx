@@ -11,7 +11,10 @@ import {
     Award,
     Briefcase,
     GraduationCap,
-    CheckCircle2
+    CheckCircle2,
+    Download,
+    ArrowUp,
+    Cloud
 } from 'lucide-react';
 import { motion } from "motion/react";
 import data from './data/profile.json';
@@ -106,16 +109,29 @@ function App() {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.5 }}
                             >
+                                {/* --- NUEVO BOTÓN: DESCARGAR CV --- */}
+                                <motion.a
+                                    href="/cv_roberth_rios.pdf"
+                                    download="CV_Roberth_Rios.pdf"
+                                    target="_blank"
+                                    rel='noopener noreferrer'
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="flex items-center gap-2 px-4 py-2 bg-emerald-600 rounded-lg hover:bg-emerald-500 transition text-sm text-white font-medium shadow-lg shadow-emerald-900/20"
+                                >
+                                    <Download size={16} /> Descargar CV
+                                </motion.a>
+                                {/* BOTONES DE CONTACTO */}
                                 {[
                                     { href: `mailto:${data.profile.email}`, icon: Mail, label: 'Contactar', color: "bg-slate-800" },
                                     { href: data.profile.social.linkedin, icon: Linkedin, label: 'LinkedIn', color: "bg-[#0077b5]" },
-                                    { href: data.profile.social.github, icon: Github, label: 'GitHub', color: "bg-gray-700" }
+                                    { href: data.profile.social.github, icon: Github, label: 'GitHub', color: "bg-gray-700" },
                                 ].map((btn, idx) => (
                                     <motion.a
                                         key={idx}
                                         href={btn.href}
                                         target={btn.href.startsWith('http') ? '_blank' : undefined}
-                                        rel="noreferrer"
+                                        rel="noopener noreferrer"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         className={`flex items-center gap-2 px-4 py-2 ${btn.color} rounded-lg hover:opacity-90 transition text-sm text-white`}
@@ -263,7 +279,12 @@ function App() {
                                                     {project.title}
                                                 </h3>
                                             </div>
-                                            <a href={project.link} className="text-slate-400 hover:text-blue-600">
+                                            <a
+                                                href={project.link}
+                                                target='_blank'
+                                                rel="noopener noreferrer"
+                                                className="text-slate-400 hover:text-blue-600"
+                                            >
                                                 <ExternalLink size={18} />
                                             </a>
                                         </div>
@@ -279,9 +300,53 @@ function App() {
                     </div>
                 </div>
 
-                <footer className="text-center text-slate-400 text-sm pt-8 border-t border-slate-200">
-                    <p>© 2025 Roberth Rios Jesus. Ingeniero de Sistemas Colegiado.</p>
+                <footer className="pt-12 pb-8 border-t border-slate-200 mt-12 bg-slate-50">
+                    <div className="flex flex-col items-center justify-center space-y-4">
+
+                        {/* Sección de Stack Tecnológico e Infraestructura */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            className="flex flex-wrap justify-center items-center gap-2 text-sm text-slate-500 px-4"
+                        >
+                            <span className="hidden sm:inline">Construido con</span>
+
+                            {/* Badges de Desarrollo */}
+                            <span className="font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">React</span>
+                            <span className="font-semibold text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded border border-cyan-100">Tailwind</span>
+
+                            {/* Separador vertical */}
+                            <span className="text-slate-300 mx-1">|</span>
+
+                            {/* Badge de Infraestructura (EL IMPORTANTE) */}
+                            <span className="flex items-center gap-1 font-semibold text-orange-700 bg-orange-50 px-2 py-0.5 rounded border border-orange-200 shadow-sm">
+                                <Cloud size={12} className="fill-orange-500 text-orange-600" />
+                                Desplegado en AWS S3
+                            </span>
+                        </motion.div>
+
+                        {/* Copyright y CIP */}
+                        <div className="text-center px-4">
+                            <p className="text-slate-600 font-medium">
+                                © {new Date().getFullYear()} {data.profile.name}
+                            </p>
+                            <p className="text-slate-400 text-sm mt-1">
+                                Ingeniero de Sistemas Colegiado <span className="text-slate-600 font-semibold">CIP 321353</span>
+                            </p>
+                        </div>
+
+                        {/* Botón Volver Arriba */}
+                        <motion.button
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            whileHover={{ y: -3 }}
+                            className="mt-4 p-2 bg-white border border-slate-200 rounded-full text-slate-400 hover:text-blue-600 hover:border-blue-200 shadow-sm transition-colors"
+                            title="Volver arriba"
+                        >
+                            <ArrowUp size={20} />
+                        </motion.button>
+                    </div>
                 </footer>
+
             </main>
         </div>
     );

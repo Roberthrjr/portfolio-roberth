@@ -58,9 +58,9 @@
     "projects": [
         {
             "title": "Cloud Resume Challenge (AWS/Azure)",
-            "tech": "AWS S3 | Lambda | GitHub Actions",
-            "desc": "Implementación de arquitectura Serverless para alojar un portafolio web. Demuestra competencias en Cloud Computing (Certificación UNI) y CI/CD.",
-            "link": "https://github.com/Roberthrjr"
+            "tech": "AWS S3 | React + Vite | Tailwind | CI/CD",
+            "desc": "Arquitectura Serverless en AWS S3 con frontend moderno de alto rendimiento (React + Vite). Implementación de pipeline CI/CD (GitHub Actions) para despliegue automatizado, integrando diseño responsive con Tailwind CSS.",
+            "link": "https://roberthrjr.com/"
         },
         {
             "title": "Network Automation Script",
