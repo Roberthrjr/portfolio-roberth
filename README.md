@@ -52,8 +52,8 @@ Si deseas clonar y ejecutar este proyecto localmente:
 
 1. **Clonar el repositorio:**
 ```bash
-git clone [https://github.com/Roberthrjr/tu-repo.git](https://github.com/Roberthrjr/tu-repo.git)
-cd tu-repo
+git clone https://github.com/Roberthrjr/portfolio-roberth.git
+cd portfolio-roberth
 
 ```
 
