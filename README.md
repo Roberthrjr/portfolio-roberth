@@ -1,102 +1,122 @@
-
-# 🚀 Portafolio Profesional & Cloud Resume
-
-![Status](https://img.shields.io/badge/Status-Active-success)
-![AWS](https://img.shields.io/badge/AWS-S3-orange?logo=amazon-aws)
-![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?logo=vite)
-![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css)
-![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=github-actions)
+# 🚀 Portafolio Profesional & Cloud Resume Challenge
 
 > **Ing. Roberth Rios Jesus** - Ingeniero de Sistemas Colegiado (CIP 321353)
 
-Este repositorio aloja el código fuente de mi portafolio profesional, diseñado como una aplicación web moderna y desplegado utilizando una arquitectura **Serverless** en AWS. Este proyecto demuestra competencias en desarrollo Fullstack y prácticas de DevOps.
+Este repositorio aloja el código fuente de mi portafolio profesional. Más que una simple web, este proyecto es una implementación completa del **Cloud Resume Challenge**, demostrando competencias en arquitectura **Serverless**, desarrollo Fullstack (React + Python) y prácticas de DevOps/CI-CD en AWS.
 
-## 📋 Características
+## 📋 Características Clave
 
-- **Diseño Responsivo:** UI moderna adaptada a móviles y escritorio utilizando **Tailwind CSS**.
-- **Animaciones Fluidas:** Interacciones y transiciones suaves con **Framer Motion**.
-- **Arquitectura Cloud:** Alojamiento estático de alto rendimiento en **Amazon S3**.
-- **CI/CD Automatizado:** Pipeline de integración y despliegue continuo mediante **GitHub Actions**.
-- **Datos Dinámicos:** La información del perfil se carga desde un archivo JSON para facilitar actualizaciones sin tocar la lógica de los componentes.
-- **Descarga de CV:** Funcionalidad integrada para descargar el hoja de vida en PDF.
+* **Arquitectura Serverless:** Backend desacoplado utilizando AWS Lambda y API Gateway.
+* **Contador de Visitas Inteligente:**
+* Implementación de **API RESTful** con Python (Boto3).
+* Lógica de **Deduplicación de Visitas** basada en IP para métricas reales (no infladas por recargas).
+* Uso de **DynamoDB Atomic Counters** para consistencia de datos.
+* Gestión automática de registros temporales mediante **TTL (Time to Live)**.
+
+
+* **Frontend Moderno:** UI responsiva con **React 18**, **Tailwind CSS** y animaciones con **Framer Motion**.
+* **Infraestructura Global:** Alojamiento estático en **Amazon S3** (optimizado para CDN).
+* **CI/CD Automatizado:** Pipeline de GitHub Actions que construye y despliega el frontend automáticamente al detectar cambios en la rama `main`.
 
 ## 🛠️ Stack Tecnológico
 
-### Frontend
-- **React.js:** Librería principal para la construcción de interfaces.
-- **Vite:** Herramienta de construcción (bundler) ultra rápida.
-- **Tailwind CSS:** Framework de utilidades para el estilizado.
-- **Framer Motion:** Librería para animaciones de producción.
-- **Lucide React:** Iconografía ligera y moderna.
+### ☁️ Backend & Cloud (AWS)
 
-### Infraestructura & DevOps
-- **AWS S3:** Almacenamiento de objetos para hosting de sitio estático.
-- **GitHub Actions:** Orquestación del flujo de trabajo para build y deploy automático al realizar un push a la rama `main`.
+* **Compute:** AWS Lambda (Python 3.x).
+* **API Management:** Amazon API Gateway (REST API).
+* **Database:** Amazon DynamoDB (NoSQL con Streams & TTL).
+* **Storage:** Amazon S3 (Hosting estático).
 
-## 🏗️ Arquitectura de Despliegue
+### 💻 Frontend
+
+* **React.js + Vite:** Desarrollo de componentes y empaquetado optimizado.
+* **Tailwind CSS:** Estilizado "utility-first".
+* **Framer Motion:** Animaciones de conteo y transiciones de interfaz.
+* **Lucide React:** Iconografía vectorial ligera.
+
+### ⚙️ DevOps
+
+* **GitHub Actions:** CI/CD para build y deploy.
+* **Control de Versiones:** Git & GitHub.
+
+## 🏗️ Arquitectura de la Solución
+
+El sistema opera bajo un modelo híbrido: el contenido estático se sirve desde S3, mientras que los datos dinámicos (contador) se consultan vía API a una arquitectura Serverless.
 
 ```mermaid
-graph LR
-    A[Developer Push] -- Code --> B(GitHub Repo)
-    B -- Trigger --> C{GitHub Actions}
-    C -- Build --> D[Vite Build]
-    D -- Deploy --> E[AWS S3 Bucket]
-    E -- Serve --> F[Usuario Final]
+graph TD
+    User[Usuario Final]
+    subgraph "Frontend Layer (AWS S3)"
+        UI[React App]
+    end
+    
+    subgraph "Serverless Backend Layer"
+        API[API Gateway]
+        Lambda[AWS Lambda (Python)]
+        DB[(DynamoDB)]
+    end
+
+    User -- HTTPS Request --> UI
+    UI -- Fetch Visitor Count --> API
+    API -- Trigger --> Lambda
+    Lambda -- Read/Write Atomic Update --> DB
+    DB -- Return Data --> Lambda
+    Lambda -- JSON Response --> UI
 
 ```
 
 ## 🚀 Instalación y Uso Local
 
-Si deseas clonar y ejecutar este proyecto localmente:
-
 1. **Clonar el repositorio:**
+
 ```bash
 git clone https://github.com/Roberthrjr/portfolio-roberth.git
 cd portfolio-roberth
 
 ```
 
-
 2. **Instalar dependencias:**
+
 ```bash
 npm install
 
 ```
 
+3. **Configuración de Variables (Opcional):**
+Si deseas conectar tu propio backend, edita la URL del API en `App.jsx`.
+4. **Ejecutar servidor de desarrollo:**
 
-3. **Ejecutar servidor de desarrollo:**
 ```bash
 npm run dev
 
 ```
 
+5. **Construir para producción:**
 
-4. **Construir para producción:**
 ```bash
 npm run build
 
 ```
 
-
 ## 📂 Estructura del Proyecto
 
 ```text
 /
-├── public/             # Archivos estáticos (favicon, CV.pdf, foto.png)
+├── public/             # Assets estáticos (CV, imágenes)
 ├── src/
-│   ├── data/           # Datos del perfil (profile.json)
-│   ├── App.jsx         # Componente principal
-│   ├── index.css       # Estilos globales y directivas Tailwind
-│   └── main.jsx        # Punto de entrada
-├── .github/workflows/  # Configuración de CI/CD (deploy.yml)
-└── vite.config.js      # Configuración de Vite
+│   ├── data/           # Datos del perfil (JSON desacoplado)
+│   ├── App.jsx         # Lógica principal y consumo de API
+│   ├── index.css       # Tailwind directives
+│   └── main.jsx        # Entry point
+├── backend/            # (Referencia) Scripts de Lambda en Python
+├── .github/workflows/  # Pipeline CI/CD
+└── vite.config.js      # Configuración del bundler
 
 ```
 
 ## 📬 Contacto
 
-Si tienes alguna pregunta sobre el proyecto o deseas contactarme por motivos profesionales:
+Si tienes alguna pregunta sobre la arquitectura o deseas contactarme por motivos profesionales:
 
 * **LinkedIn:** [Roberth Rios Jesus](https://linkedin.com/in/roberthrjr)
 * **GitHub:** [Roberthrjr](https://github.com/Roberthrjr)
@@ -104,4 +124,4 @@ Si tienes alguna pregunta sobre el proyecto o deseas contactarme por motivos pro
 
 ---
 
-© 2025 Roberth Rios Jesus. Desarrollado con ❤️ y desplegado en la Nube.
+© 2025 Roberth Rios Jesus. Desarrollado con ❤️ y desplegado en AWS.

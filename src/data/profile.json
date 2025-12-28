@@ -60,7 +60,7 @@
             "title": "Cloud Resume Challenge (AWS Serverless)",
             "tech": "AWS Lambda (Python) | DynamoDB | React | GitHub Actions",
             "desc": "Arquitectura Serverless completa. Frontend en React alojado en S3 tras CloudFront (CDN) para alta disponibilidad. Backend RESTful con API Gateway y Lambda (Python) integrando DynamoDB con contadores atómicos y lógica de deduplicación de visitas (TTL). Pipeline CI/CD automatizado.",
-            "link": "https://roberthrjr.com/"
+            "link": "https://github.com/Roberthrjr/portfolio-roberth"
         },
         {
             "title": "Network Automation Script",
