@@ -52,7 +52,7 @@ graph TD
     
     subgraph "Serverless Backend Layer"
         API[API Gateway]
-        Lambda[AWS Lambda (Python)]
+        Lambda["AWS Lambda (Python)"]
         DB[(DynamoDB)]
     end
 
