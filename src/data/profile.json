@@ -2,7 +2,7 @@
     "profile": {
         "name": "Ing. Roberth Rios Jesus",
         "role": "Ingeniero de Sistemas CIP 321353 | Cloud & Fullstack Developer",
-        "summary": "Ingeniero de Sistemas Colegiado con Maestría en Gerencia de TI en curso. Especialista en Transformación Digital con sólida base técnica en Arquitectura Cloud (AWS/Azure/GCP), Desarrollo Backend (Python/Node) y Automatización. Experiencia probada en el sector público modernizando infraestructura crítica y desplegando soluciones Serverless escalables.",
+        "summary": "Ingeniero de Sistemas Colegiado con Maestría en Gerencia de TI en curso. Especialista en Transformación Digital con sólida base técnica en Arquitectura Cloud (AWS/Azure/GCP), Desarrollo Backend (Java/Python/PHP) y Automatización. Experiencia probada en el sector público modernizando infraestructura crítica y desplegando soluciones Serverless escalables.",
         "location": "Áncash, Perú",
         "email": "tauroroberth00@gmail.com",
         "social": {
@@ -40,13 +40,14 @@
     ],
     "skills": [
         "AWS Serverless (Lambda, DynamoDB, API Gateway)",
-        "Python Development (PCEP Certified)",
+        "Backend Architecture (Java, PHP MVC, Python)",
         "Frontend Moderno (React, Tailwind, Vite)",
         "DevOps & CI/CD (GitHub Actions)",
         "Ciberseguridad & Redes (CCNA)",
         "Data Analytics (Power BI, SQL)"
     ],
     "certifications": [
+        "Especialización en Desarrollo de Aplicaciones con Java (140 horas) - CIETSI",
         "Bootcamp Desarrollo Web Fullstack con Python (258 horas) - Tecsup",
         "Cloud Computing: AWS - Azure - Google Cloud (Nota 20) - UNI",
         "PCEP™ – Certified Entry-Level Python Programmer - Python Institute",
@@ -63,16 +64,10 @@
             "link": "https://github.com/Roberthrjr/portfolio-roberth"
         },
         {
-            "title": "Network Automation Script",
-            "tech": "Python | Netmiko | Linux Automation",
-            "desc": "Herramienta de automatización para configuración masiva de equipos de red (Switching/Routing). Aplica principios de Infrastructure as Code (IaC) reduciendo tareas manuales repetitivas.",
-            "link": "https://github.com/Roberthrjr"
-        },
-        {
-            "title": "Dashboard Analítico de Negocios",
-            "tech": "Power BI | SQL | DAX",
-            "desc": "Solución de Business Intelligence para visualización de KPIs estratégicos. Modelado de datos complejo y diseño de tableros interactivos para soporte a la toma de decisiones.",
-            "link": "#"
+            "title": "Sistema de Gestión de Incidencias (Backend Corporativo)",
+            "tech": "PHP 8 Nativo | MVC Architecture | MySQL | JWT + RBAC",
+            "desc": "API RESTful robusta diseñada bajo patrón MVC estricto sin frameworks. Implementación de seguridad avanzada: Autenticación JWT con Refresh Tokens, Listas Negras y Control de Acceso Basado en Roles (RBAC). Gestión compleja de activos TI, auditoría de transacciones y prevención de SQL Injection con PDO.",
+            "link": "https://github.com/Roberthrjr/gestion_incidencias_backend"
         }
     ]
 }
