@@ -1,0 +1,45 @@
+name: Despliegue Portafolio a AWS
+
+on:
+  push:
+    branches:
+      - master  # ⚠️ Si tu rama principal se llama 'master', cambia esto a 'master'
+
+jobs:
+  deploy:
+    name: Build y Despliegue
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Bajar el código
+    - name: Checkout del código
+      uses: actions/checkout@v4
+
+    # 2. Instalar Node.js
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    # 3. Instalar dependencias y generar el build
+    - name: Instalar y Construir
+      run: |
+        npm install
+        npm run build
+      # Esto generará la carpeta 'dist' con tu web lista
+
+    # 4. Loguearse en AWS usando los secretos que acabas de guardar
+    - name: Configurar Credenciales AWS
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    # 5. Subir archivos a S3 (y borrar los viejos para limpiar)
+    - name: Sincronizar con S3
+      run: aws s3 sync ./dist s3://portafolio-roberthrjr-20 --delete
+
+    # 6. INVALIDACIÓN (El paso clave para arreglar tu error)
+    - name: Invalidar Caché CloudFront
+      run: aws cloudfront create-invalidation --distribution-id E1YITZXQU9V8E5 --paths "/*"
